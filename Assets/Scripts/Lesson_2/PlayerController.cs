@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Lesson_2
 {
+    [DisallowMultipleComponent]
     public class PlayerController : MonoBehaviour
     {
-        [Inject] private PlayerInputService _inputService;
-        [Inject] private PlayerMovementService _movementService;
-
+        [Inject] private IInputService _inputService;
+        [Inject] private IMovementService _movementService;
+        
+        
         private void Update()
         {
             Vector3 input = _inputService.GetMovementInput();
